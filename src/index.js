@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import reactToWebComponent from "react-to-webcomponent";
 import PropTypes from 'prop-types';
-import App from "./App";
+import App from "./components/App";
 
 
 const index = ({url})=>{

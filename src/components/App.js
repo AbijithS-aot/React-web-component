@@ -1,7 +1,8 @@
 
 import { useEffect, useState } from "react";
 import { Form } from "react-formio";
-import axios from 'axios';
+import { publicApplicationCreate } from "../apiManager/services/appService";
+import { getFormUrl } from "../apiManager/services/formatterServices";
 
 const App =({src})=>{
     const [url ,setUrl] =useState('');
@@ -11,12 +12,16 @@ const App =({src})=>{
     },[src])
    const handleSubmit = (data)=>{
     const formId = data.form;
-    const formUrl = `http://206.116.106.143:5000/form/${data.form}/submission/${data._id}`;
+    // const formUrl = `http://206.116.106.143:5000/form/${data.form}/submission/${data._id}`;
     const submissionId = data._id;
-    axios.post("http://206.116.106.143:5000/public/application/create",{formId,formUrl,submissionId});
+    const formUrl = getFormUrl(formId,submissionId)
+    const formData = {
+        formId,formUrl,submissionId
+    }
+    publicApplicationCreate(formData);
    } 
     return(
-        <div>
+        <div className="container">
             <Form 
              src={url}
              onSubmit={(data)=>{
