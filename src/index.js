@@ -6,7 +6,6 @@ import App from "./App";
 
 
 const index = ({url})=>{
-  console.log("url",url)
   return (
     <div >
     <h1>Web component</h1>
