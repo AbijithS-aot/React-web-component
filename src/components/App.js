@@ -12,7 +12,6 @@ const App =({src})=>{
     },[src])
    const handleSubmit = (data)=>{
     const formId = data.form;
-    // const formUrl = `http://206.116.106.143:5000/form/${data.form}/submission/${data._id}`;
     const submissionId = data._id;
     const formUrl = getFormUrl(formId,submissionId)
     const formData = {
