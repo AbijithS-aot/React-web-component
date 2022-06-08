@@ -13,7 +13,7 @@ const App =({src})=>{
    const handleSubmit = (data)=>{
     const formId = data.form;
     const submissionId = data._id;
-    const formUrl = getFormUrl(formId,submissionId)
+    const formUrl = getFormUrl(formId,submissionId);
     const formData = {
         formId,formUrl,submissionId
     }
@@ -25,6 +25,9 @@ const App =({src})=>{
              src={url}
              onSubmit={(data)=>{
                 handleSubmit(data);
+             }}
+             onFormError={(error)=>{
+                 console.log("error",error)
              }}
             />
         </div>
